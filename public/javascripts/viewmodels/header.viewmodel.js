@@ -39,7 +39,8 @@ var header = (function (window, $, ko, app, undefined) {
 				experience : ko.observable(''),
 				login : ko.observable(false)
 			},
-			isUserLoggedIn : ko.observable(false)
+			isUserLoggedIn : ko.observable(false),
+			isLoginValid : ko.observable(false),
 		},
 
 		el : {
@@ -85,12 +86,12 @@ var header = (function (window, $, ko, app, undefined) {
 			* never request it again. 
 			* TODO 2 : error control will be added.
 			*/
-			var username = this.observables.user.name();
+			var userid = this.observables.user.id();
 			var userpass = this.observables.user.password();
 			var userData = ko.toJS(app.observables.globalJSON());
 			if($.cookie('auth') !== 'true') {
 				for (var count = 0, len = userData.user.length; count < len; count++) {
-					if (username == userData.user[count].id && userpass == userData.user[count].passWord) {
+					if (userid == userData.user[count].id && userpass == userData.user[count].passWord) {
 						this.fillUserInstance(userData.user[count]);
 						this.setAuthentication(true);
 					}
@@ -98,15 +99,90 @@ var header = (function (window, $, ko, app, undefined) {
 			} else {
 				this.injectAuthCookieIntoAuthState();
 			}
-
-			/*Logining with Sign-In Modal Control*/
-			if ($(this.el.signInModal).length > 0 && $(this.el.signInModal).is(':visible')) {
-				console.log('hide sign-in modal');
-				$(this.el.signInModal).modal('hide');
-				//go into triggered link after opening sign-in modal
-				window.location.href = _.viewModels.memberNavViewModel.triggeredLink();
-			}
 			
+		},
+
+		/**
+		 * fillUserInstance() sets the current user's info into the viewmodel.
+		 *
+		*/
+		fillUserInstance : function (obj) {
+			this.observables.user.name(obj.name);
+			this.observables.user.id(obj.id);
+			this.observables.user.score(obj.puan);
+			this.observables.user.balance(obj.bakiye);
+			this.observables.user.nickname(obj.nickName);
+			this.observables.user.twitter(obj.twitter);
+			this.observables.user.experience(obj.experience);			
+			this.observables.user.login(obj.login);
+		},
+
+		/**
+		 * setAuthentication() sets the state and cookie state of
+		 * current user information throughout the application
+		 *
+		*/
+		setAuthentication : function (auth) {
+			this.observables.isLoginValid(auth);
+			this.setAuthenticationState(auth);
+			this.setAuthenticationIntoCookie(auth);
+		},
+
+		/**
+		 * setAuthenticationState() sets the current user's authentication
+		 * state around knockoutJS
+		 *
+		*/
+		setAuthenticationState : function (auth) {
+			this.observables.isUserLoggedIn(auth);
+		},
+
+		/**
+		 * setAuthenticationIntoCookie() sets the current user's authentication
+		 * state around cookies.
+		 *
+		*/
+		setAuthenticationIntoCookie : function (authenticationState) {
+			if (authenticationState) {
+				$.cookie('auth', true, {path : '/', expires: 60});
+				$.cookie('name', this.observables.user.name(), {path : '/', expires: 60});
+				$.cookie('password', this.observables.user.password(), {path : '/', expires: 60});
+				$.cookie('id', this.observables.user.id(), {path : '/', expires: 60});
+				$.cookie('nickname', this.observables.user.nickname(), {path : '/', expires: 60});
+				$.cookie('twitter', this.observables.user.twitter(), {path : '/', expires: 60});
+				$.cookie('balance', this.observables.user.balance(), {path : '/', expires: 60});
+				$.cookie('score', this.observables.user.score(), {path : '/', expires: 60});
+				$.cookie('experience', this.observables.user.experience(), {path : '/', expires: 60});
+				$.cookie('login', this.observables.user.login(), {path : '/', expires: 60});
+			} else {
+				$.cookie('auth', false, { path: '/' });
+				$.cookie("name", null, { path: '/' });
+				$.cookie('password', null, { path: '/' });
+				$.cookie('id', null, { path: '/' });
+				$.cookie('nickname', null, { path: '/' });
+				$.cookie('twitter', null, { path: '/' });
+				$.cookie('balance', null, { path: '/' });
+				$.cookie('score', null, { path: '/' });
+				$.cookie('experience', null, { path: '/' });
+			}
+		},
+
+		/**
+		 * injectAuthCookieIntoAuthState() imports the state of
+		 * current user information into cookies.
+		 *
+		*/
+		injectAuthCookieIntoAuthState : function () {
+			this.observables.user.name($.cookie('name'));
+			this.observables.user.password($.cookie('password'));
+			this.observables.user.id($.cookie('id'));
+			this.observables.user.nickname($.cookie('nickname'));
+			this.observables.user.twitter($.cookie('twitter'));
+			this.observables.user.balance($.cookie('balance'));
+			this.observables.user.score($.cookie('score'));
+			this.observables.user.experience($.cookie('experience'));
+			this.observables.user.login($.cookie('login'));
+			this.setAuthentication(true);
 		},
 
 		/**

@@ -2,19 +2,13 @@
 	"bootstrap": "<a href='http://getbootstrap.com/'>Bootstrap v3.1.0</a>",
 	"user": [ {
 		"name": 			"Test User Long Surname",
-		"id":	        "13032707",
+		"id":	        "11111111",
 		"passWord": 	"1234",
 		"nickName": 	"hwclass",
 		"twitter": 		"@hwclass",
 		"bakiye":	    "147.50",
 		"puan":       "2200",
 		"experience":	"expert",
-		"suppportedTeam" : "Galatasaray",
-		"mobile" : "05555555555",
-		"email" : "testuser@nesine.com",
-		"address" : "Test Mah. test Sok. No:2 Altunizade İstanbul",
-		"passwordReminder" : "What was the name of your first pet?",
-		"passwordReminderAnswer" : "Chucky",
 		"login":			true
 	}, {
 		"name": 			"Test User Expert",
@@ -25,12 +19,6 @@
 		"bakiye":			"147.50",
 		"puan":				"2200",
 		"experience":	"expert",
-		"suppportedTeam" : "Galatasaray",
-		"mobile" : "05555555555",
-		"email" : "testuser@nesine.com",
-		"address" : "Test Mah. test Sok. No:2 Altunizade İstanbul",
-		"passwordReminder" : "What was the name of your first pet?",
-		"passwordReminderAnswer" : "Chucky",
 		"login":			true
 	}, {
 		"name": 			"Test User Moderate",
@@ -41,12 +29,6 @@
 		"bakiye":			"147.50",
 		"puan":				"2200",
 		"experience":	"moderate",
-		"suppportedTeam" : "Galatasaray",
-		"mobile" : "05555555555",
-		"email" : "testuser@nesine.com",
-		"address" : "Test Mah. test Sok. No:2 Altunizade İstanbul",
-		"passwordReminder" : "What was the name of your first pet?",
-		"passwordReminderAnswer" : "Chucky",
 		"login":			true
 	}, {
 		"name": 			"Low User",
@@ -57,12 +39,6 @@
 		"bakiye":			"147.50",
 		"puan":				"2200",
 		"experience":	"low",
-		"suppportedTeam" : "Galatasaray",
-		"mobile" : "05555555555",
-		"email" : "testuser@nesine.com",
-		"address" : "Test Mah. test Sok. No:2 Altunizade İstanbul",
-		"passwordReminder" : "What was the name of your first pet?",
-		"passwordReminderAnswer" : "Chucky",
 		"login":			true
 	}, {
 		"name": 			"Test User",
@@ -73,12 +49,6 @@
 		"bakiye":			"147.50",
 		"puan":				"2200",
 		"experience":	"novice",
-		"suppportedTeam" : "Galatasaray",
-		"mobile" : "05555555555",
-		"email" : "testuser@nesine.com",
-		"address" : "Test Mah. test Sok. No:2 Altunizade İstanbul",
-		"passwordReminder" : "What was the name of your first pet?",
-		"passwordReminderAnswer" : "Chucky",
 		"login":			true
 	} ],
 	"event": [

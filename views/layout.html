@@ -43,12 +43,12 @@
 	      <div class="navbar-collapse collapse">
 	        <form class="navbar-form navbar-right" role="form" data-bind="visible: app.viewModels.header.observables.isUserLoggedIn() == false">
 	          <div class="form-group">
-	            <input type="text" placeholder="Email" class="form-control">
+	            <input type="text" placeholder="id" class="form-control" data-bind="value : app.viewModels.header.observables.user.id">
 	          </div>
 	          <div class="form-group">
-	            <input type="password" placeholder="Password" class="form-control">
+	            <input type="password" placeholder="password" class="form-control" data-bind="value : app.viewModels.header.observables.user.password">
 	          </div>
-	          <button type="submit" class="btn btn-success">Sign in</button>
+	          <button type="submit" class="btn btn-success" data-bind="click: app.viewModels.header.login">Sign in</button>
 	        </form>
   	      <div data-bind="visible: app.viewModels.header.observables.isUserLoggedIn()">
   	      	<ul class="nav navbar-nav navbar-right">
