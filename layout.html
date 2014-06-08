@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+	<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+	<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+	<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SPA Prototyping Boilerplate for KnockoutJS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="public/css/normalize.css">
+    <link rel="stylesheet" href="public/css/main.css">
+    <script src="public/js/vendor/modernizr-2.6.2.min.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <header id="header">
+    	<div class="centered">
+    		<ul id="header-menu" data-bind="foreach: footer.view.observables.initial.menu"> 
+    			<li>
+    				<a href="#" data-bind="text : $data.content"></a>
+    			</li>
+    		</ul>
+    	</div>
+    </header>
+    <section id="member-box">
+    	<div class="centered">
+	    	<span data-bind="text : userAuth.view.observables.initial.user.name"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.id"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.password"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.nickname"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.twitter"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.balance"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.score"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.experience"></span>
+	    	<span data-bind="text : userAuth.view.observables.initial.user.login"></span>
+    	</div>
+    </section>
+    <section id="content-main">
+    	<div class="centered">
+	    	<h1 data-bind="text : contentMain.view.observables.initial.content.h1.text"></h1>
+	    	<p data-bind="text : contentMain.view.observables.initial.content.p.text"></p>
+	    	<a data-bind="text : contentMain.view.observables.initial.content.a.text" href="#"></a>
+    	<div style="width: 1100px; margin: 0 auto;">
+    </section>
+    <footer id="footer">
+    	<div class="centered">
+	    	<ul id="footer-menu" data-bind="foreach: footer.view.observables.initial.menu"> 
+	    		<li>
+	    			<a href="#" data-bind="text : $data.content"></a>
+	    		</li>
+	    	</ul>
+    	</div>
+    </footer>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="header.viewmodel.js"></script>
+    <script type="text/javascript" src="userAuth.viewmodel.js"></script>
+    <script type="text/javascript" src="contentMain.viewmodel.js"></script>
+    <script type="text/javascript" src="footer.viewmodel.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+    	/*
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+      */
+    </script>
+  </body>
+</html>
