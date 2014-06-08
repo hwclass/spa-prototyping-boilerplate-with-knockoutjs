@@ -38,7 +38,8 @@ var header = (function (window, $, ko, app, undefined) {
 				score : ko.observable(''),
 				experience : ko.observable(''),
 				login : ko.observable(false)
-			}
+			},
+			isUserLoggedIn : ko.observable(false)
 		},
 
 		el : {
