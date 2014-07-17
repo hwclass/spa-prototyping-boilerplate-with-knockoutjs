@@ -97,7 +97,7 @@ var app = (function (window, $, ko, undefined) {
 		 *
 		*/
 		isNull : function (obj) {
-	    return (null == obj ? true : false);
+  		return (null == obj ? true : false);
 		},
 		
 		/**
