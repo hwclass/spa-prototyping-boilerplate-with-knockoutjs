@@ -36,7 +36,7 @@ var app = (function (window, $, ko, undefined) {
 	}
 
 	/**
-	 * viewModels{} is initialized to be the main view-model wrapper.
+	 * viewModels{} object is initialized to be the main view-model wrapper.
 	 *
 	*/
 	var viewModels = {};
