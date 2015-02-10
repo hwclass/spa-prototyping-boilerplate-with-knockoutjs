@@ -1,7 +1,12 @@
 /*home View-Model*/
 var contact = (function (window, $, ko, app, undefined) {
+	
 	'use strict';
-		
+	
+	/**
+	 * view{} is initialized to be the main object literal of contact view.
+	 *
+	*/	
 	var view = {
 
 		observables : {
@@ -23,16 +28,28 @@ var contact = (function (window, $, ko, app, undefined) {
 			wrapper : document.getElementById('js-vm-contact')
 		},
 
+		/**
+		 * applyBinding() binds view-model for the specific view.
+		 *
+		*/
 		applyBinding : function () {
 			app.applyBinding('contact', view, view.el.wrapper);
 		},
 
+		/**
+		 * init() can be used to initialize any module, invoke a method or function and etc. 
+		 *
+		*/
 		init : function () {
 			view.applyBinding();
 		}
 		
 	};
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		view.init();
   }, false);
