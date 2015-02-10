@@ -31,6 +31,10 @@ var app = (function (window, $, ko, undefined) {
 		}
 	};
 
+	/**
+	 * observables{} is the container for the observable values.
+	 *
+	*/
 	var observables = {
 		globalJSON : ko.observable()
 	}
@@ -135,6 +139,10 @@ var app = (function (window, $, ko, undefined) {
 
 	}
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		init();
   }, false);
