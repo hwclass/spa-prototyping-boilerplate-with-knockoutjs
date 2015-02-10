@@ -1,7 +1,12 @@
 /*home View-Model*/
 var about = (function (window, $, ko, app, undefined) {
+	
 	'use strict';
-		
+	
+	/**
+	 * view{} is initialized to be the main object literal of about view.
+	 *
+	*/	
 	var view = {
 
 		observables : {
