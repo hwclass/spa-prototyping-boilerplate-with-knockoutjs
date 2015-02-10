@@ -84,7 +84,7 @@ var app = (function (window, $, ko, undefined) {
 	}
 
 	/**
-   * init can be used to init other view-models which is not initialized. 
+   * init() can be used to init other view-models which is not initialized. 
 	*/
 	function init () {
 		app.utils.log('app initialized...');

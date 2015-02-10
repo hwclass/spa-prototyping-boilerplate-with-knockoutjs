@@ -23,16 +23,28 @@ var about = (function (window, $, ko, app, undefined) {
 			wrapper : document.getElementById('js-vm-about')
 		},
 
+		/**
+		 * applyBinding() binds view-model for the specific view.
+		 *
+		*/
 		applyBinding : function () {
 			app.applyBinding('about', view, view.el.wrapper);
 		},
 
+		/**
+		 * init() can be used to initialize any module, invoke a method or function and etc. 
+		 *
+		*/
 		init : function () {
 			view.applyBinding();
 		}
 		
 	};
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		view.init();
   }, false);
