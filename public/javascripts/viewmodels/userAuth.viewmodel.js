@@ -3,6 +3,10 @@ var userAuth = (function (window, $, ko, app, undefined) {
 	
 	'use strict';
 		
+	/**
+	 * view{} is initialized to be the main object literal of userAuth view.
+	 *
+	*/
 	var view = {
 
 		observables : {
@@ -36,16 +40,27 @@ var userAuth = (function (window, $, ko, app, undefined) {
 			wrapper : document.getElementById('member-box')
 		},
 
+		/**
+		 * applyBinding() binds view-model for the specific view.
+		 *
+		*/
 		applyBinding : function () {
 			app.applyBinding('userViewModel', view, view.el.wrapper);
 		},
 
+		/**
+	   * init can be used to init other view-models which is not initialized. 
+		*/
 		init : function () {
 			view.applyBinding();
 		}
 		
 	};
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		view.init();
   }, false);

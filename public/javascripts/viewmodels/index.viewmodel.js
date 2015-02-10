@@ -1,7 +1,12 @@
 /*home View-Model*/
 var home = (function (window, $, ko, app, undefined) {
+	
 	'use strict';
-		
+	
+	/**
+	 * view{} is initialized to be the main object literal of home view.
+	 *
+	*/	
 	var view = {
 
 		observables : {
@@ -23,16 +28,27 @@ var home = (function (window, $, ko, app, undefined) {
 			wrapper : document.getElementById('js-vm-index')
 		},
 
+		/**
+		 * applyBinding() binds view-model for the specific view.
+		 *
+		*/
 		applyBinding : function () {
 			app.applyBinding('index', view, view.el.wrapper);
 		},
 
+		/**
+	   * init can be used to init other view-models which is not initialized. 
+		*/
 		init : function () {
 			view.applyBinding();
 		}
 		
 	};
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		view.init();
   }, false);

@@ -1,7 +1,12 @@
 /*header View-Model*/
 var header = (function (window, $, ko, app, undefined) {
+	
 	'use strict';
-		
+	
+	/**
+	 * view{} is initialized to be the main object literal of header view.
+	 *
+	*/		
 	var view = {
 
 		observables : {
@@ -47,6 +52,10 @@ var header = (function (window, $, ko, app, undefined) {
 			wrapper : document.getElementById('js-vm-header')
 		},
 
+		/**
+		 * applyBinding() binds view-model for the specific view.
+		 *
+		*/
 		applyBinding : function () {
 			app.applyBinding('header', view, view.el.wrapper);
 		},
@@ -199,7 +208,7 @@ var header = (function (window, $, ko, app, undefined) {
 		},
 
 		/**
-	   * init can be used to init other view-models which is not initialized. 
+	   * init() can be used to init other view-models which is not initialized. 
 		*/
 		init : function () {
 			app.applyBinding('header', view, view.el.wrapper);
@@ -209,6 +218,10 @@ var header = (function (window, $, ko, app, undefined) {
 		
 	};
 
+	/**
+	 * DOMContentLoaded waits until the whole content loaded.
+	 *
+	*/
 	window.addEventListener("DOMContentLoaded", function() {
 		view.init();
   }, false);
