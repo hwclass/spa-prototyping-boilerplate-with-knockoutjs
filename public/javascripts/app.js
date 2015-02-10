@@ -1,6 +1,11 @@
+/**
+ * app() is initialized to be the main object literal for the whole project.
+ *
+*/
 var app = (function (window, $, ko, undefined) {
 
 	'use strict';
+
 	/**
 	 * app{} is initialized to be the main object literal.
 	 *
@@ -37,7 +42,48 @@ var app = (function (window, $, ko, undefined) {
 	*/
 	var observables = {
 		globalJSON : ko.observable()
-	}
+	};
+
+	/**
+   * topics{} is the container for custom events holding them as topics.
+   *
+  */
+  var topics = {};
+
+  /**
+   * IMPORTANT : This is a pub/sub event
+   * subscribe() adds subscription to custom events.
+   *
+  */
+  function subscribe(topic, listener) {
+    // Create the topic's object if not yet created
+    if(!topics[topic]) topics[topic] = { queue: [] };
+    // Add the listener to queue
+    var index = topics[topic].queue.push(listener);
+    // Provide handle back for removal of topic
+    return (function(index) {
+      return {
+        remove: function() {
+          delete topics[index];
+        }
+      }
+    })(index);
+  };
+
+  /**
+   * IMPORTANT : This is a pub/sub event
+   * publish() calls for the whole custom events to be subscripted into custom events.
+   *
+  */
+  function publish(topic, info) {
+    // If the topic doesn't exist, or there's no listeners in queue, just leave
+    if(!topics[topic] || !topics[topic].queue.length) return;
+    // Cycle through topics queue, fire!
+    var items = topics[topic].queue;
+    for(var x = 0; x < items.length; x++) {
+      items[x](info || {});
+    }
+  };
 
 	/**
 	 * viewModels{} object is initialized to be the main view-model wrapper.
